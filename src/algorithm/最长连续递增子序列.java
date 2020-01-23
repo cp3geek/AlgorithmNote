@@ -6,7 +6,7 @@ public class 最长连续递增子序列 {
 	/**
 	 * 
 	 * (1,9,2,5,7,3,4,6,8,0)的最长连续递增子序列是(3,4,6,8)
-	 * 双指针记录
+	 * 双指针记录//输出该子序列
 	 */
 	public static void main(String[] args) {
 		int[]arr= {1,9,0};
