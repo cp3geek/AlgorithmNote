@@ -17,6 +17,7 @@ public class 最长连续递增子序列 {
 		int count=1;
 		int begin=0;
 		
+		
 	
 		for(int i=0;i<arr.length-1;i++) {
 			
