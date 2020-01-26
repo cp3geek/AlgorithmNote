@@ -20,7 +20,7 @@ public class QuickSort {
     }
 	
 	public static int partition(int[] a, int p, int r) {
-		int primary=a[p];
+		int primary=a[p];//基准点元素，取第一个
 		int left=p+1;
 		int right=r;
 		
