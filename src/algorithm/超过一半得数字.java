@@ -20,6 +20,8 @@ public class 超过一半得数字 {
 		return arr[(arr.length)/2];
 		
 	}
+	
+	//不允许修改数组
 	static int solve2(int[]arr) {
 		int res=第k小得数.selectk(arr, 0, arr.length-1, arr.length/2);
 		return res;
