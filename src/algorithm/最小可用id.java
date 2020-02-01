@@ -1,5 +1,7 @@
 package algorithm;
 
+import java.util.Arrays;
+
 public class 最小可用id {
 
 	/**
@@ -7,8 +9,22 @@ public class 最小可用id {
 	 * 
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int[]arr= {5,1,3,6,2,7,8};
+		//1,2,3,5,6,7,8
+		System.out.println(f(arr));
 
+	}
+	//填坑法NlogN
+	static int f(int[]arr) {
+		Arrays.sort(arr);
+		int res=1;
+		for(int i=0;i<arr.length;i++) {
+			if((i+1)!=arr[i]) {
+				res=i+1;
+				break;
+			}
+		}
+		return res;
 	}
 
 }
