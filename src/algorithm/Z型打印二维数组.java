@@ -18,19 +18,19 @@ public class Z型打印二维数组 {
 			//从左下到右上的斜线
 			if(l2r) {
 				System.out.print(matrix[r][c]+" ");
-				if(r==0&&c<n-1) {
-					l2r=!l2r;
+				if(r==0&&c<n-1) {//在第一行，但是列未到边界，则c++
+					l2r=!l2r;//切换方向
 					c++;
 					continue;
-				}else if(r>0&&c==n-1) {
+				}else if(r>0&&c==n-1) {//到了最后一列，则只能往下走
 					l2r=!l2r;
 					r++;
 					continue;
-				}else {
+				}else {//在中间，上坡路未走完，则同时改变
 					r--;
 					c++;
 				}
-			}else {
+			}else {//反向
 				System.out.print(matrix[r][c]+" ");
 				if(c==0&&r<m-1) {
 					l2r=!l2r;
