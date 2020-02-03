@@ -13,9 +13,9 @@ public class 子矩阵的最大累加和 {
 	 */
 	public static void main(String[] args) {
 		int[][]matrix= {
-				{-1,-1,-1},
-				{-1, 2, 2},
-				{-1,-1,-1}
+				{-90,48,78},
+				{64, -40, 64},
+				{-81,-7,66}
 				};
 		System.out.println(f(matrix));
 
