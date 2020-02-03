@@ -9,8 +9,8 @@ public class 子数组的最大累加和 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		int[]arr= {1,-2,3,5,-2,6,-1,8};
-		System.out.println(f(arr));
+		int[]arr= {1,-2,3,5,-2,6,-1};
+		System.out.println(f1(arr));
 
 	}
 	
@@ -30,9 +30,30 @@ public class 子数组的最大累加和 {
 			}
 		}
 		return max;
+	}
+	//优化
+	//递推法
+	static int f1(int[]arr) {
+		int sumj=arr[0];
+		int max=sumj;
+		
+		int left=0,right=0;
 		
 		
+		for(int i=0;i<arr.length;i++) {
+			if(sumj>=0)sumj+=arr[i];
+			else {
+				sumj=arr[i];
+				left=i;//记录左区间
+				}//前面加起来为负数，则丢弃
+			
+			if(sumj>max) {
+				max=sumj;
+				right=i;//记录右区间
+				}
+		}
 		
+		return max;
 	}
 
 }
