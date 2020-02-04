@@ -15,8 +15,8 @@ public class 压缩字符串 {
 	static String f(String str) {
 		int count=0;
 		int last=str.charAt(0);
-		
 		StringBuilder sb=new StringBuilder();
+		
 		for(int i=0;i<str.length();i++) {
 			char charAt=str.charAt(i);
 			if(sb.length()==0) {
