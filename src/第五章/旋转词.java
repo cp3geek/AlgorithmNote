@@ -19,7 +19,7 @@ public class 旋转词 {
 		System.out.println(f("AABCD","CDAA"));
 
 	}
-	//意思就是拼接s1，如果其中的子串包含s2,则s2为s1的旋转词
+	//意思就是拼接s1，如果其中的子串包含s2,则s2为s1的旋转词/不是求子串，如果是子串则需要判断长度相等
 	//AABCDAABCD 
 	static boolean f(String S1,String S2) {
 		StringBuilder sb=new StringBuilder();
