@@ -8,13 +8,34 @@ public class 压缩字符串 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		
+		System.out.println(f("aabcccccaaabbc"));
 
 	}
 	
 	static String f(String str) {
+		int count=0;
+		int last=str.charAt(0);
 		
-		return "";
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<str.length();i++) {
+			char charAt=str.charAt(i);
+			if(sb.length()==0) {
+				sb.append(charAt);
+				count++;
+			}else {
+				if(last==charAt) {
+					count++;
+				}else {
+					sb.append(count).append(charAt);
+					count=1;
+					last=charAt;
+				}
+			}
+		}
+		if(count>=1)sb.append(count);
+		
+		
+		return sb.length()<str.length()?sb.toString():str;
 	}
 
 }
