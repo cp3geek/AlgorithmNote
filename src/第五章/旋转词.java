@@ -8,17 +8,23 @@ public class 旋转词 {
 	 * 
 	 * AABCD的旋转此有
 	 * ABCDA,BCDAA,CDAAB,DAABC
-	 * 
-	 * 
+	 * 解析：
+	 * A ABCDA
+	 * AA BCDAA
+	 * AAB CDAAB
+	 * AABC DAABC
 	 */
+	
 	public static void main(String[] args) {
-		System.out.println(f("ABCD","ACBD"));
+		System.out.println(f("AABCD","CDAA"));
 
 	}
-	static boolean f(String s1,String s2) {
+	//意思就是拼接s1，如果其中的子串包含s2,则s2为s1的旋转词
+	//AABCDAABCD 
+	static boolean f(String S1,String S2) {
 		StringBuilder sb=new StringBuilder();
-		sb.append(s1).append(s1);
-		return sb.toString().contains(s2);
+		sb.append(S1).append(S1);
+		return sb.toString().contains(S2);
 	}
 
 }
