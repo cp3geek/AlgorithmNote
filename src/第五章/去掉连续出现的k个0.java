@@ -11,7 +11,7 @@ public class 去掉连续出现的k个0 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		System.out.println(delete0("1000001",2));
+		System.out.println(delete0("100000100000",2));
 		System.out.println(remove("101",2));
 
 	}
@@ -32,6 +32,9 @@ public class 去掉连续出现的k个0 {
 			}
 			
 		}
+		//如果后面全是0，则需要再拼接一次，因为最后只是count++
+		for(int j=0;j<count%k;j++)
+			sb.append('0');
 		return sb.toString();
 	}
 	

@@ -8,7 +8,7 @@ public class 压缩字符串 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		System.out.println(f("aabcccccaaabbc"));
+		System.out.println(f("aabcccccaaabbcccc"));
 
 	}
 	
