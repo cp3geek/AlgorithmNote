@@ -12,31 +12,33 @@ public class 去掉连续出现的k个0 {
 	 */
 	public static void main(String[] args) {
 		System.out.println(delete0("1000001",2));
-		System.out.println(remove("1001",2));
+		System.out.println(remove("101",2));
 
 	}
+	
+	
 	static String delete0(String str,int k) {
-		char[]charArray=str.toCharArray();
-		StringBuilder sb=new StringBuilder();
+		char[]arr=str.toCharArray();
 		int count=0;
-		
-		for(int i=0;i<charArray.length;i++) {
-			char c=charArray[i];
-			if(c=='0') {
-				count++;
-			}else {
-				for(int j=0;j<count%k;j++) {
-					sb.append('0');
-				}
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<arr.length;i++) {
+			char c=arr[i];
+			if(c=='0')count++;
+			else {
+				for(int j=0;j<count%k;j++)
+					sb.append('0');//一次结算完了
 				sb.append(c);
-				//count=0;
+				count=0;//置为0
 			}
+			
 		}
-		
-		
-		
 		return sb.toString();
 	}
+	
+	
+	
+	
+	
 	//0{3},代表连续三个0
 	static String remove(String str,int k) {
 		String regexp="0{"+k+"}";
