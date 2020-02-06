@@ -12,6 +12,7 @@ public class 去掉连续出现的k个0 {
 	 */
 	public static void main(String[] args) {
 		System.out.println(delete0("1001"));
+		System.out.println(remove("1001",2));
 
 	}
 	static String delete0(String str) {
@@ -22,6 +23,11 @@ public class 去掉连续出现的k个0 {
 		}
 		
 		return sb.toString();
+	}
+	//0{3},代表三个0
+	static String remove(String str,int k) {
+		String regexp="0{"+k+"}";
+		return str.replaceAll(regexp, "");//将0替换成空白
 	}
 
 }
