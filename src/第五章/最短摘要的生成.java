@@ -86,9 +86,9 @@ public class 最短摘要的生成 {
 	private static void print(String[] w, int begin, int end) {
 		System.out.println(begin+" "+end);
 		for(int i=begin;i<=end;i++) {
-			System.out.println(w[i]+" ");
+			System.out.print(w[i]+" ");
 		}
-		System.out.println();
+		
 	}
 	
 	
