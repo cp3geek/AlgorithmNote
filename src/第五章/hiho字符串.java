@@ -13,7 +13,7 @@ public class hiho字符串 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		String str="hugeinputhugeoutput";
+		String str="happyhahaiohell";
 		solve(str);
 	}
 
