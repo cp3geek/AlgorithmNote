@@ -3,8 +3,8 @@ package 第五章;
 public class 字符串匹配之KMP_暴力匹配 {
 
 	public static void main(String[] args) {
-		String s="ababababab";
-		String p="aba";
+		String s="bababcbababababb";
+		String p="bababb";
 
 //		System.out.println(match(s, p));
 		m(s,p);
@@ -12,6 +12,7 @@ public class 字符串匹配之KMP_暴力匹配 {
 
 	}
 	
+	//找出第一个匹配子串的首下标
 	static int match(String s,String p) {
 		int i=0,j=0;int sc=i;
 		while(sc<s.length()) {
@@ -29,7 +30,7 @@ public class 字符串匹配之KMP_暴力匹配 {
 		return -1;
 	}
 	
-	
+	//找出所有匹配子串的首下标
 	static void m(String s,String p) {
 		int i=0,j=0;int sc=i;
 		while(sc<s.length()) {
