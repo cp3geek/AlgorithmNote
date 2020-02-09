@@ -5,6 +5,7 @@ public class 字符串匹配之KMP {
 	public static void main(String[] args) {
 		String s="babababcbabababb";
 		String p="babababb";
+		System.out.println(indexOf1(s, p));
 
 	}
 	
@@ -44,16 +45,25 @@ public class 字符串匹配之KMP {
  * "后缀"指除了第一个字符以外，一个字符串的全部尾部组合。
  */
 	
-	/**
-	 * babab b
-	 * 
-	 * 前缀：b,ba,bab,baba,babab
-	 * 后缀：abab,bab,ab,b
-	 * 
-	 */
-	private static int[] next(String p) {
+	//递推求next数组/有疑惑
+	private static int[] next(String ps) {
+		int pLength=ps.length();
+		int[]next=new int[pLength];
+		char[]p=ps.toCharArray();
+		next[0]=-1;
+		if(ps.length()==1)return next;
 		
-		return null;
+		next[1]=0;
+		int j=1;
+		int k=next[j];
+		while(j<pLength-1) {
+			if(k<0||p[j]==p[k]) {
+				next[++j]=++k;
+			}else {
+				k=next[k];
+			}
+		}
+		return next;
 	}
 
 }
