@@ -34,5 +34,26 @@ public class 字符串匹配之KMP {
 		}
 		return -1;
 	}
+/**
+ * 字符串:bread
+ * 前缀:b,br,bre,brea
+ * 后缀:read,ead,ad,d 
+ * 老师说的和这个有些不一样
+ *
+ * "前缀"指除了最后一个字符以外，一个字符串的全部头部组合；
+ * "后缀"指除了第一个字符以外，一个字符串的全部尾部组合。
+ */
+	
+	/**
+	 * babab b
+	 * 
+	 * 前缀：b,ba,bab,baba,babab
+	 * 后缀：abab,bab,ab,b
+	 * 
+	 */
+	private static int[] next(String p) {
+		
+		return null;
+	}
 
 }
