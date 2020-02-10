@@ -34,7 +34,7 @@ public class 巧用进制解决天平称重问题 {
 				}else {
 					++arr[i+1];
 				}
-			}else if(arr[i]=='3') {
+			}else if(arr[i]=='3') {//有可能连续两个2，则后一位会进位成3需要处理
 				list.add(0,0);
 				if(i==arr.length-1) {//如果是最后一位，则再补一位
 					list.add(0,1);

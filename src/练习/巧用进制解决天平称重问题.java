@@ -18,6 +18,13 @@ public class 巧用进制解决天平称重问题 {
 	 * 9-3-1
 	 * 
 	 */
+	
+	/**
+	 * 思路：将数转换成三进制，因为不能重复拿砝码，所以向高位进位，则低位为-1
+	 * 例如5 转换成三进制为（1 2） 翻转成字符数组，2，1，好进位
+	 * 则可以改成 -1 -1 1（低位到高位）
+	 * 最后拼接
+	 */
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
 		int N=input.nextInt();
