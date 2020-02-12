@@ -40,6 +40,7 @@ CPU消耗 < 1000ms
 		Scanner input =new Scanner(System.in);
 		String[]s=input.nextLine().split(" ");
 		int[]data=new int[s.length];
+		
 		for(int i=0;i<s.length;i++) {
 			data[i]=Integer.parseInt(s[i]);
 		}
@@ -68,17 +69,21 @@ CPU消耗 < 1000ms
 				res^=(a[i]-a[i-1]-1);
 			}
 		}
-		if(res==0) System.out.println(-1);
+		//转换成nim博弈
+		if(res==0) System.out.println(-1);//如果==0，则先手必输，无解
 		else {
+			//必赢操作，从第一个小和尚开始枚举
 			for(int i=0;i<len-1;i++) {
-				for(int j=1;a[i]+j<a[i+1];j++) {
-					int temp=a[i];
+				//最后一个数为顶点，所以不用遍历到最后一个数
+				for(int j=1;a[i]+j<a[i+1];j++) {//前一个小和尚不能越过后一个小和尚
+					int temp=a[i];//临时变量，方便后面回溯
 					a[i]+=j;
-					if(fun(a)) {
+					if(fun(a)) {//重新计算异或值，若为0，必胜操作，因为先手需要将当前状态转换成输得状态
 						System.out.println(temp+" "+a[i]);
+						//必赢操作，输出
 						break;
 					}
-					a[i]=temp;
+					a[i]=temp;//回溯
 				}
 				
 			}
