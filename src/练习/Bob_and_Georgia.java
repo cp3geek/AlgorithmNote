@@ -39,11 +39,12 @@ public class Bob_and_Georgia {
 		int res=0;
 		if((len&1)==1) {
 			for(int i=0;i<len;i+=2) {
-				res^=(i==0)?a[i]:(a[i]-a[i-1]);
+				res^=(i==0)?(a[i]-1):(a[i]-a[i-1]-1);
+				//-1是因为计算两点之间得间隔
 			}
 		}else {
 			for(int i=1;i<len;i+=2) {
-				res^=(a[i]-a[i-1]);
+				res^=(a[i]-a[i-1]-1);//-1是因为计算它们之间得间隔
 			}
 		}
 		if(res==0)return "Bob will win";
