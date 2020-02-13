@@ -43,7 +43,13 @@ public class 裴蜀等式 {
 	static long x;
 	static long y;
 	public static void main(String[] args) {
-		
+		try {
+			linearEquation(97, -127, 1);
+			System.out.println(x+" "+y);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	

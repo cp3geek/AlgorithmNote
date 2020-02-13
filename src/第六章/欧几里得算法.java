@@ -7,7 +7,7 @@ public class 欧几里得算法 {
 	 * 求解最大公约数
 	 */
 	public static void main(String[] args) {
-		
+		System.out.println(gcd(12,42));
 
 	}
 	
