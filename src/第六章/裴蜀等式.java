@@ -20,6 +20,12 @@ public class 裴蜀等式 {
 	 * 
 	 */
 
+	
+	/**
+	 * a%b=k ---->a=(a/b)*b+k ---->k=a-(a/b)*b
+	 * 所以a%b=a-(a/b)*b
+	 * 
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
