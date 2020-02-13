@@ -1,4 +1,4 @@
-package 练习;
+package 第六章;
 
 public class 一步之遥_欧几里得扩展 {
 
