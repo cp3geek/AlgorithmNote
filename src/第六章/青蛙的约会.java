@@ -45,6 +45,18 @@ Sample Output
 4
 	 * 
 	 */
+	/**
+	 * 先从数学性质上处理一直条件，本题实际就是求解同余方程：
+
+x + mt ≡ y + nt (mod L) （其中 t 为任意正整数,也就是跳跃的次数）
+
+t(m − n) ≡ y − x (mod L)
+那么，把上述式子转化为不定方程就是：
+
+t(m − n) + Lk = y − x
+
+	 * 
+	 */
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
 		long x1=input.nextLong();
@@ -58,10 +70,10 @@ Sample Output
 		long d=0;
 		try {
 			d=linerException(a, b, m);
-			long x0=x;
+			long x0=x;//可能为负数
 			b/=d;
 			b=Math.abs(b);
-			x0=(x0%b+b)%b;
+			x0=(x0%b+b)%b;//求得第一个不为0的解
 			System.out.println(x0);
 			
 		} catch (Exception e) {
@@ -100,8 +112,6 @@ Sample Output
 		x*=n;
 		y*=n;
 		return d;
-		
-		
 	}
 
 }
