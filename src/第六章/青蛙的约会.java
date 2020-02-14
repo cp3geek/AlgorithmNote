@@ -47,15 +47,22 @@ Sample Output
 	 */
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
+		long x1=input.nextLong();
+		long y=input.nextLong();
 		long m=input.nextLong();
 		long n=input.nextLong();
-		long x=input.nextLong();
-		long y=input.nextLong();
 		long L=input.nextLong();
+		long a=m-n;
+		long b=L;
+		m=y-x1;
+		long d=0;
 		try {
-			linerException(m-n, L, x-y);
-			System.out.println(x);
-			
+			d=linerException(a, b, m);
+			long x0=x;
+			b/=d;
+			b=Math.abs(b);
+			x0=(x0%b+b)%b;
+			System.out.println(x0);
 			
 		} catch (Exception e) {
 			
