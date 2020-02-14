@@ -1,5 +1,7 @@
 package 第六章;
 
+import java.util.Scanner;
+
 public class 青蛙的约会 {
 
 	/**
@@ -17,6 +19,14 @@ public class 青蛙的约会 {
 设青蛙A的出发点坐标是x，青蛙B的出发点坐标是y。
 青蛙A一次能跳m米，青蛙B一次能跳n米，两只青蛙跳一次所花费的时间相同。
 纬度线总长L米。现在要你求出它们跳了几次以后才会碰面。
+假设跳了t次
+
+写成方程式:(m*t+x)-(n*t+y)=kL//k是倍数,转换车线性同余方程为：
+
+(m-n)t≡(x-y)(mod L)
+转换成一元二次方程
+ax+by=m ====>(m-n)t+Ly=x-y
+
 
 Input
 
@@ -36,7 +46,21 @@ Sample Output
 	 * 
 	 */
 	public static void main(String[] args) {
-		
+		Scanner input=new Scanner(System.in);
+		long m=input.nextLong();
+		long n=input.nextLong();
+		long x=input.nextLong();
+		long y=input.nextLong();
+		long L=input.nextLong();
+		try {
+			linerException(m-n, L, x-y);
+			System.out.println(x);
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 
 	}
 	
@@ -45,5 +69,32 @@ Sample Output
 	 * 主要是对这个问题进行建模分析，转换形式，需要推导
 	 * 求出第一个大于0的解
 	 */
+	
+	static long x;
+	static long y;
+	
+	public static long ext_gcd(long a,long b) {
+		if(b==0) {
+			x=1;
+			y=0;
+			return a;
+		}
+		long res=ext_gcd(b,a%b);
+		long x1=x;
+		x=y;
+		y=x1-a/b*y;
+		return res;
+	}
+	
+	public static long linerException(long a,long b,long m) throws Exception {
+		long d=ext_gcd(a,b);
+		if(m%d!=0)throw new Exception("无解");
+		long n=m/d;
+		x*=n;
+		y*=n;
+		return d;
+		
+		
+	}
 
 }
