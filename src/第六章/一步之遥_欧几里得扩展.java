@@ -19,7 +19,7 @@ public class 一步之遥_欧几里得扩展 {
 	/**
 	 * 转换成方程97x-127y=1;
 	 * 求第一个解
-	 * 
+	 * 如果不是大题，直接暴力，更快
 	 */
 	static long x;
 	static long y;
@@ -29,7 +29,7 @@ public class 一步之遥_欧几里得扩展 {
 			System.out.println(x+" "+y);
 			System.out.println(Math.abs(x)+Math.abs(y));//求绝对值
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
