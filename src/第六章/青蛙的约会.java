@@ -75,9 +75,7 @@ t(m − n) + Lk = y − x
 			b=Math.abs(b);
 			x0=(x0%b+b)%b;//求得第一个不为0的解
 			System.out.println(x0);
-			
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
 
