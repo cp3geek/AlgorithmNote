@@ -3,8 +3,8 @@ package 第五章;
 public class 字符串匹配之KMP {
 
 	public static void main(String[] args) {
-		String s="babababcbabababb";
-		String p="babababb";
+		String s="hahaha";
+		String p="ha";
 		System.out.println(indexOf1(s, p));
 
 	}

@@ -24,7 +24,6 @@ public class hiho字符串 {
 					if(check(c1)&&containsAll(w,i,j)) {
 						if(check(w,i,j)&&j-i+1<minlen) {
 							minlen=j-i+1;
-							
 						}
 						break;
 					}
