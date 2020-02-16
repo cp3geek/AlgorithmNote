@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class hiho字符串 {
 	/**
-	 * 这个会超时！！
+	 * 注意坑点之处，如果超过2个h和1个i和1个o,就直接break
+	 * 不然会超时
 	 */
 
 	/**
@@ -45,7 +46,7 @@ public class hiho字符串 {
 						if(c1=='h')keyFound[0]++;
 						else if(c1=='i')keyFound[1]++;
 						else keyFound[2]++;
-						
+						if(keyFound[0]>2||keyFound[1]>1||keyFound[2]>1)break;
 						if(sum(keyFound)==4&&keyFound[0]==2&&keyFound[1]==1&&keyFound[2]==1) {
 							if(j-i+1<minlen) {
 								minlen=j-i+1;
