@@ -10,12 +10,28 @@ public class 机器人走方格 {
 	 */
 
 	public static void main(String[] args) {
-		System.out.println(f(6,6));
-
+		System.out.println(f(3,3));
+		System.out.println(f(3,3));
 	}
 	public static int f(int x,int y) {
 		if(x==1||y==1)return 1;
 		return f(x-1,y)+f(x,y-1);
+	}
+	public static int f1(int x,int y) {
+		int[][]state=new int[x+1][y+1];
+		
+		for(int i=1;i<=x;i++) {
+			state[i][1]=1;
+		}
+		for(int i=0;i<=y;i++) {
+			state[1][i]=1;
+		}
+		for(int i=2;i<=x;i++) {
+			for(int j=2;j<=y;j++) {
+				state[i][j]=state[i-1][j]+state[i][j-1];
+			}
+		}
+		return state[x][y];
 	}
 
 }
