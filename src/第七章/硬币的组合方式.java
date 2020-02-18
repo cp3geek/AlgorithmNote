@@ -22,7 +22,8 @@ public class 硬币的组合方式 {
 		int res=0;
 		//不取当前最大面值，取一个，取两个。。。具体可以循环几次，取决与n
 		//例如n等100，最大面值为25，则最大面值有5种取法（不取也算一种）0，1，2，3，4
-		for(int i=0;i*coins[cur]<=n;i++) {
+		for(int i=0;i*coins[cur]<=n;i++) {//用for循环表现几个相加
+			//机器人走格子里面，两种情况相加，因为只能右走和下走，而这个不确定，所以用for循环
 			int shengyu=n-i*coins[cur];
 			res+=countWaysCore(shengyu, coins, cur-1);//累加结果
 		}
