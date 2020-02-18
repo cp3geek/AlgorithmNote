@@ -1,5 +1,7 @@
 package 第五章第六章课后题;
 
+import java.util.Scanner;
+
 public class Nim游戏 {
 
 	/**
@@ -26,8 +28,22 @@ Bob
 	 * 
 	 */
 	public static void main(String[] args) {
-		
+		Scanner input=new Scanner(System.in);
+		int N=input.nextInt();
+		int[]A=new int[N];
+		for(int i=0;i<A.length;i++) {
+			A[i]=input.nextInt();
+		}
+		System.out.println(Nim(A));
 
+	}
+	public static String Nim(int[]A) {
+		int res=0;
+		for(int i=0;i<A.length;i++) {
+			res^=A[i];
+		}
+		if(res==0)return "Bob";
+		else return "Alice";
 	}
 
 }
