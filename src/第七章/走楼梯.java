@@ -10,14 +10,35 @@ public class 走楼梯 {
 	 * 保证n小于10000；
 	 */
 	public static void main(String[] args) {
-		System.out.println(f(36));
+		System.out.println(f(34));
+		System.out.println(f1(34));
 
 	}
 	public static int f(int n) {
-		if(n==1)return 1;
+		int mod=1000000007;
+		if(n<=0)return 0;
+		else if(n==1)return 1;
 		else if(n==2)return 2;
 		else if(n==3)return 4;
-		else return ((f(n-3)+f(n-2)+f(n-1))%1000000007);
+		else return f(n-3)%mod+f(n-2)%mod+f(n-1)%mod;
+	}
+	//用循环递推得方式
+	public static int f1(int n) {
+		if(n<=0)return 0;
+		if(n==1)return 1;
+		if(n==2)return 2;
+		if(n==3)return 4;
+		int mod=1000000007;
+		int x1=1;
+		int x2=2;
+		int x3=4;
+		for(int i=4;i<=n;i++) {
+			int x_=(x1+x2+x3)%mod;
+			x1=x2%mod;
+			x2=x3%mod;
+			x3=x_%mod;
+		}
+		return x3;
 	}
 
 }
