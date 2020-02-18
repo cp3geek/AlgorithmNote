@@ -23,13 +23,16 @@ public class KMP算法 {
 		int sLen=s.length();
 		int pLen=p.length();
 		while(i<sLen) {
-			while(j!=-1&&s.charAt(i)!=p.charAt(j))j=next[j];
-			i++;
-			j++;
+			if(j==-1||s.charAt(i)==p.charAt(j)) {
+				i++;
+				j++;
+			}else {
+				j=next[j];
+			}
 			if(j==pLen) {
+				j=next[j-1];//继续匹配后面,因为第一次匹配完之后，j=pLen，在next数组中应该指向上一个
+				i--;//从上一个匹配串得最后一个位置开始，只要是处理adadada这类情况
 				count++;
-				i--;
-				j=next[j-1];
 			}
 		}
 		System.out.println(count);
