@@ -12,7 +12,8 @@ public class 子集生成 {
 	public static void main(String[] args) {
 		int[]A= {1,2,3};
 		Set<Set<Integer>>set=f(A,A.length,A.length-1);
-		for(Set<Integer>nset:set) {
+		Set<Set<Integer>>set1=f1(A);
+		for(Set<Integer>nset:set1) {
 			if(!nset.isEmpty()) {
 				System.out.println(nset);
 			}
@@ -44,6 +45,22 @@ public class 子集生成 {
 		
 		return newSet;
 		
+	}
+	
+	public static Set<Set<Integer>>f1(int[]A){
+		Set<Set<Integer>>res=new HashSet<Set<Integer>>();
+		res.add(new HashSet<Integer>());
+		for(int i=0;i<A.length;i++) {
+			Set<Set<Integer>>res_new=new HashSet<Set<Integer>>();
+			res_new.addAll(res);
+			for(Set e:res) {
+				Set clone=(Set)((HashSet) e).clone();
+				clone.add(A[i]);
+				res_new.add(clone);
+			}
+			res=res_new;
+		}
+		return res;
 	}
 
 }
