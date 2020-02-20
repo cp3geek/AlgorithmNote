@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class 全排列_上 {
 
 	public static void main(String[] args) {
-		String s="ABCD";
-		ArrayList<String>list=f(s);
+		String s="ABC";
+		ArrayList<String>list=f1(s,s.length()-1);
 		System.out.println(list);
 
 	}
@@ -34,6 +34,30 @@ public class 全排列_上 {
 			list=newlist;
 		}
 		return list;
+	}
+	
+	public static ArrayList<String>f1(String A,int cur){
+		ArrayList<String>newlist=new ArrayList<String>();
+		
+		if(cur==0) {
+			newlist.add(A.charAt(0)+"");
+			return newlist;
+		}
+		
+		
+		ArrayList<String>oldlist=f1(A,cur-1);
+		
+		
+		for(String str:oldlist) {
+			char c=A.charAt(cur);
+			newlist.add(c+str);
+			newlist.add(str+c);
+			for(int j=1;j<str.length();j++) {
+				newlist.add(str.substring(0, j)+c+str.substring(j));
+			}
+		}
+		return newlist;
+		
 	}
 
 }
