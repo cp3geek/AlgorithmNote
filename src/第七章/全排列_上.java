@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class 全排列_上 {
 
 	public static void main(String[] args) {
-		String s="ABC";
+		String s="ABCD";
 		ArrayList<String>list=f(s);
 		System.out.println(list);
 
@@ -13,30 +13,27 @@ public class 全排列_上 {
 	
 	
 	public static ArrayList<String>f(String A){
+		ArrayList<String>list=new ArrayList<String>();
 		int n=A.length();
-		ArrayList<String>res=new ArrayList<String>();
-		res.add(A.charAt(0)+"");
-		
+		list.add(A.charAt(0)+"");
 		
 		for(int i=1;i<n;i++) {
-			ArrayList<String>res_new=new ArrayList<String>();
 			char c=A.charAt(i);
-			for(String str:res) {
+			ArrayList<String>newlist=new ArrayList<String>();
+			for(String str:list) {
 				String newStr=c+str;
-				res_new.add(newStr);
+				newlist.add(newStr);
 				newStr=str+c;
-				res_new.add(newStr);
+				newlist.add(newStr);
 				
-				//加在中间
 				for(int j=1;j<str.length();j++) {
 					newStr=str.substring(0, j)+c+str.substring(j);
-					res_new.add(newStr);
+					newlist.add(newStr);
 				}
 			}
-			res=res_new;
+			list=newlist;
 		}
-		
-		return res;
+		return list;
 	}
 
 }
