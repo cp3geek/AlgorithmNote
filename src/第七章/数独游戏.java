@@ -70,7 +70,7 @@ public class 数独游戏 {
 		}
 	}
 	private static boolean check(char[][] table, int i, int j, int k) {
-		for(int l=0;l<9;l++) {
+		for(int l=0;l<=9;l++) {
 			if(table[i][l]==(char)('0'+k))return false;
 			if(table[l][j]==(char)('0'+k))return false;
 		}
