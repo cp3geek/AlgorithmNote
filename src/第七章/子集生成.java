@@ -10,7 +10,7 @@ public class 子集生成 {
 	 * 
 	 */
 	public static void main(String[] args) {
-		int[]A= {1,2,3};
+		int[]A= {1,2,4,7};
 		Set<Set<Integer>>set=f(A,A.length-1);
 		Set<Set<Integer>>set1=f1(A);
 		for(Set<Integer>nset:set) {
@@ -54,7 +54,7 @@ public class 子集生成 {
 			Set<Set<Integer>>res_new=new HashSet<Set<Integer>>();
 			//新建一个集合
 			res_new.addAll(res);//保留原样
-			for(Set e:res) {//克隆，争对当前元素添加
+			for(Set e:res) {//克隆，针对当前元素添加
 				Set clone=(Set)((HashSet) e).clone();
 				clone.add(A[i]);
 				res_new.add(clone);
