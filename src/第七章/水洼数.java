@@ -75,7 +75,7 @@ W.W.W.....W.
 			for(int l=-1;l<2;l++) {
 				if(k==0&&l==0)continue;
 				
-				if(i+k>=0&&i+k<=n-1&&j+l>=0&&j+l<=m-1) {
+				if(i+k>=0&&i+k<=a.length-1&&j+l>=0&&j+l<=a[0].length-1) {
 					if(a[i+k][j+l]=='W') {
 						dfs(a,i+k,j+l);
 					}
