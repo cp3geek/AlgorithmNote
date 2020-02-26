@@ -16,48 +16,52 @@ public class 素数环 {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		int n=sc.nextInt();
-		int[]rec=new int[n];
-		rec[0]=1;
-		dfs(n,rec,1);
+		int[]r=new int[n];
+		r[0]=1;
+		dfs(n,r,1);
 
 	}
 
-	private static void dfs(int n, int[] rec, int cur) {
+	private static void dfs(int n, int[] r, int cur) {
 		
-		if(cur==n&&isp(rec[0]+rec[n-1])) {
-			print(rec);
+		if(cur==n&&isp(r[0]+r[n-1])) {
+			print(r);
 			return;
 		}
 		for(int i=2;i<=n;i++) {
-			if(check(rec,i,cur)) {
-				rec[cur]=i;
-				dfs(n,rec,cur+1);
-				rec[cur]=0;
+			if(check(r,i,cur)) {
+				r[cur]=i;
+				dfs(n,r,cur+1);
+				r[cur]=0;//此题必须回溯，因为check在检查的时候
+				//会扫描一遍数组，如果不回溯则上一个位置可选择填的数就少了一个
 			}
 		}
 		
 	}
 
-	private static boolean check(int[] rec, int i,int cur) {
-		for(int e:rec) {
-			if(e==i||!isp(rec[cur-1]+i))return false;
+	private static boolean check(int[] r, int i, int cur) {
+		for(int k=0;k<r.length;k++) {
+			if(r[k]==i||!isp(r[cur-1]+i))return false;
 		}
 		return true;
 	}
 
-	private static void print(int[] rec) {
-		for(int i=0;i<rec.length;i++) {
-			System.out.print(rec[i]+(i==rec.length-1?"":" "));
+	private static void print(int[] r) {
+		for(int i=0;i<r.length;i++) {
+			System.out.print(r[i]+(i==r.length-1?"":" "));
 		}
 		System.out.println();
-		
 	}
 
-	private static boolean isp(int n) {
-		for(int i=2;i*i<=n;i++) {
-			if(n%i==0)return false;
+	private static boolean isp(int num) {
+		if(num<=2)return false;
+		for(int i=2;i*i<=num;i++) {
+			if(num%i==0)return false;
 		}
 		return true;
 	}
+	
+
+		
 
 }
