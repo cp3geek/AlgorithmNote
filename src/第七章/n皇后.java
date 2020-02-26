@@ -21,8 +21,8 @@ public class n皇后 {
 	 * 技巧：如何检查对角线上的元素
 	 * 主对角线：x-y相同//行减列
 	 * 副对角线：x+y相同
-	 * 扫描rec数组：记录填的坐标，
-	 * 
+	 * 扫描rec数组：记录填的坐标
+	 * rec数组：下标代表行，值代表列
 	 */
 	static int n;
 	static int cnt;
@@ -39,21 +39,24 @@ public class n皇后 {
 			cnt++;
 			return;
 		}
+		
 		for(int col=0;col<n;col++) {
-			boolean ok=true;
-			for(int i=0;i<row;i++) {
-				if(rec[i]==col||i+rec[i]==row+col||i-rec[i]==row-col) {
-					ok=false;
-					break;
-				}
-			}
-			if(ok) {
+			if(check(rec,row,col)) {
 				rec[row]=col;
 				dfs(row+1);
-				
+				//rec[row]=0;这里回溯不是必要的，无解的情况直接退出了
+				//从第一行一列开始尝试，挨着往下填，如果无解，该方法未到最后一行就退出了
+				//则直接回到上一行(上一个方法未退出，方法栈)，col++，尝试另外一列
 			}
 		}
 		
+	}
+	//检查列和对角线是否已填元素
+	static boolean check(int[]rec,int x,int y) {
+		for(int i=0;i<x;++i) {
+			if(rec[i]==y||rec[i]+i==x+y||rec[i]-i==y-x)return false;
+		}
+		return true;
 	}
 	
 
