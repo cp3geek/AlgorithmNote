@@ -50,6 +50,7 @@ public class n皇后 {
 			if(ok) {
 				rec[row]=col;
 				dfs(row+1);
+				
 			}
 		}
 		
