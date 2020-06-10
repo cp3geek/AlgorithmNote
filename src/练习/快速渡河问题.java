@@ -1,6 +1,5 @@
-package 第八章;
+package 练习;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class 快速渡河问题 {
@@ -22,37 +21,17 @@ public class 快速渡河问题 {
 		for(int i=0;i<T;i++) {
 			int n=sc.nextInt();
 			int[]speed=new int[n];
-			for(int j=0;j<n;j++) {
+			for(int j=0;j<speed.length;j++) {
 				speed[j]=sc.nextInt();
 			}
-			Arrays.sort(speed);
 			f(n,speed);
 		}
+
 	}
-	private static void f(int n,int[]speed) {
+	public static void f(int n,int[]speed) {
 		int left=n;
 		int ans=0;
-		while(left>0) {
-			if(left==1) {//左边只剩一个人
-				ans+=speed[0];
-				break;
-			}else if(left==2) {//只剩两个人
-				ans+=speed[1];//排过序，最快和次快，选次快
-				break;
-			}else if(left==3) {
-				ans+=speed[2]+speed[0]+speed[1];//三个人来回
-				break;
-			}else {
-				int s1=speed[1]+speed[0]+speed[left-1]+speed[1];//分组策略
-				int s2=speed[left-1]+speed[left-2]+2*speed[0];//快的来回
-				ans+=min(s1,s2);
-				left-=2;
-			}
-		}
-		System.out.println(ans);
 	}
-	static int min(int i,int j) {
-		return i<j?i:j;
-	}
+	
 
 }
