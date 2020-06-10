@@ -1,5 +1,7 @@
 package 第八章;
 
+import java.util.Scanner;
+
 public class 硬币问题 {
 
 	/*
@@ -18,8 +20,27 @@ public class 硬币问题 {
 	 * 
 	 * */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<6;i++) {
+			cnts[i]=sc.nextInt();
+		}
+		int A=sc.nextInt();
+		int res=f(A,5);
+		System.out.println(res);
+	}
+	static int min(int i,int j) {
+		return i<j?i:j;
+	}
+	static int[]cnts=new int[6];
+	static int[]coins= {1,5,10,50,100,500};
+	static int f(int A,int cur) {
+		if(A<=0)return 0;
+		if(cur==0)return A;
+		int coinValue=coins[cur];
+		int x=A/coinValue;
+		int cnt=cnts[cur];
+		int t=min(x,cnt);
+		return t+f(A-t*coinValue,cur-1);
 	}
 
 }
