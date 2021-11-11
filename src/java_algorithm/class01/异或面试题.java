@@ -40,7 +40,7 @@ public class 异或面试题 {
 
         int OnleOne=0;//eor`
         for(int cur:arr){
-            if((cur&rightOne)==0){//将数组中的数分成两组，最右边位置为0的数取出与onleone异或，得到a或者b
+            if((cur&rightOne)==0){//将数组中的数分成两组，二进制位最右边位置为0的数取出与onleone异或，得到a或者b
                 OnleOne^=cur;
             }
         }
