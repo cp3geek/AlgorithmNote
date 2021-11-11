@@ -20,6 +20,17 @@ public class BubbleSort {
         arr[i]=arr[i]^arr[j];
         arr[j]=arr[i]^arr[j];
         arr[i]=arr[i]^arr[j];
+        //异或：不同为1，相同为0
+        /*
+        * 1）0^N=N,N^N=0
+        * 2）异或运算满足交换律和结合律 a^b=b^a,a^b^c=a^(b^c)
+        *同一批数异或，结果与谁跟谁先异或无关，一定相同
+        * a=甲，b=乙
+        * a=a^b     a=甲^乙，b=乙
+        * b=a^b     b=甲^乙^乙=甲^0=甲，a=甲^乙
+        * a=a^b     a=甲^乙^甲=（甲^甲）^乙=乙，b=甲
+        * a=乙，b=甲
+        * */
     }
 
 
