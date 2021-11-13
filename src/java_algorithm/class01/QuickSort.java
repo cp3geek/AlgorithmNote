@@ -26,12 +26,6 @@ public class QuickSort {
         }
     }
 
-    private static void swap(int[] arr, int i, int j) {
-        int temp=0;
-        temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-    }
 
     /**
      *这是一个处理arr[l...r]的函数
@@ -42,17 +36,30 @@ public class QuickSort {
         int less =l-1;//<区右边界
         int more=r;//>区左边界
         while(l<more){//l表示当前数的位置
-            if(arr[l]<arr[r])swap(arr,++less,l++);//当前数小于划分值
+            if(arr[l]<arr[r])swap(arr,++less,l++);//当前数小于划分值,less指小于区边界位置，所以交换需提前+1
             else if(arr[l]>arr[r])swap(arr,--more,l);//当前数大于划分值
             else l++;
         }
-        swap(arr,more,r);
-        return new int[]{less+1,more};
+        swap(arr,more,r);//l与more相遇，基准点归位
+        return new int[]{less+1,more};//返回左右边界
     }
+
+
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp=0;
+        temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
+
+
 
     public static void main(String[] args) {
         int[]arr={10,9,8,7,6,5,4,3,2,1};
         quickSort(arr);
         System.out.println(Arrays.toString(arr));
+
     }
 }
