@@ -34,7 +34,6 @@ public class ReversePair {
             }else{
                 for(int x=p1;x<mid+1;x++) System.out.println("("+arr[x]+","+arr[p2]+")");
                 sum+=mid+1-p1;
-
                 help[i++]=arr[p2++];
             }
         }
