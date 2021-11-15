@@ -13,7 +13,8 @@ public class HeapSort {
 
     public static void heapSort(int[]arr){
         if(arr==null||arr.length<2)return;
-        for(int i=0;i<arr.length;i++)heapInsert(arr,i);//构建大根堆
+//        for(int i=0;i<arr.length;i++)heapInsert(arr,i);//构建大根堆
+        for(int i=arr.length-1;i>=0;i--)heapify(arr,i,arr.length);//构建大根堆，时间复杂度更低，从第一个非叶子节点开始调整
         int heapSize=arr.length;
         swap(arr,0,--heapSize);//最大位置的数跟最小位置数交换0位置就是最大数位置
         while(heapSize>0){
