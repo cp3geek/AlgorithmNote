@@ -1,16 +1,21 @@
 package java_algorithm.class01;
 
+import java.util.Arrays;
+
 public class HeapSort {
     public static void main(String[] args) {
+        int[] arr={2,6,8,7,1,2,3,6,9,4,10,2,1,0,36,45,51,2,6};
+        heapSort(arr);
+        System.out.println(Arrays.toString(arr));
 
     }
 
 
     public static void heapSort(int[]arr){
         if(arr==null||arr.length<2)return;
-        for(int i=0;i<arr.length;i++)heapInsert(arr,i);
+        for(int i=0;i<arr.length;i++)heapInsert(arr,i);//构建大根堆
         int heapSize=arr.length;
-        swap(arr,0,--heapSize);
+        swap(arr,0,--heapSize);//最大位置的数跟最小位置数交换0位置就是最大数位置
         while(heapSize>0){
             heapify(arr,0,heapSize);
             swap(arr,0,--heapSize);
