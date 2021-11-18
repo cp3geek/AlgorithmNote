@@ -5,4 +5,6 @@ package java_algorithm.class02;
 //要求：如果链表长度为N，时间复杂度要求为O（N），额外空间复杂度要求为O（1）
 //抽时间补充代码
 public class ReverseLinkedList {
+
+
 }
