@@ -1,5 +1,7 @@
 package java_algorithm.class01;
 
+import java.util.Arrays;
+
 public class RadixSort {
     public static void radixSort(int[]arr){
         if(arr==null||arr.length<2)return;
@@ -41,11 +43,18 @@ public class RadixSort {
                 bucket[count[j]-1]=arr[i];//根据count数组填入到辅助数组中
                 count[j]--;
             }//这一步所有数字出桶
-            for(i=L,j=0;i<=R;i++,j++)arr[i]=bucket[j];
+            for(i=L,j=0;i<=R;i++,j++)arr[i]=bucket[j];//将排序结果倒回原数组
+            //重复
         }
     }
 
-    private static int getDigit(int i, int d) {
-        return 0;
+    private static int getDigit(int x, int d) {
+        return ((x/((int)Math.pow(10,d-1))))%10;
+    }
+
+    public static void main(String[] args) {
+        int[]arr={23,14,25,100,65,874,123,45,68,110,112,56,98,74};
+        radixSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
