@@ -37,7 +37,7 @@ public class RadixSort {
                 j=getDigit(arr[i],d);//d如果是1，就取出个位数字，如果是2就取出十位数字，如果是3就取出百位数字
                 count[j]++;
             }
-            for(i=1;i<radix;i++) count[i]=count[i]+count[i-1];//然后将count数组处理成前缀和
+            for(i=1;i<radix;i++) count[i]+=count[i-1];//然后将count数组处理成前缀和
             for(i=R;i>=L;i--){//然后从右往左遍历数组
                 j=getDigit(arr[i],d);//拿出当前数的d位上的数
                 bucket[count[j]-1]=arr[i];//根据count数组填入到辅助数组中
