@@ -31,15 +31,14 @@ public class PalindromeLinkedList {
         while(head!=null){
             if(head.value!=stack.pop().value)return false;
             head=head.next;
-
         }
         return true;
     }
     //need n/2 extra space
     public static boolean isPalindrome2(Node head){
         if(head==null||head.next==null)return true;
-        Node right=head.next;
-        Node cur=head;
+        Node right=head.next;//慢指针
+        Node cur=head;//快指针
         while(cur.next!=null&&cur.next.next!=null){
             right=right.next;
             cur=cur.next.next;
@@ -57,8 +56,7 @@ public class PalindromeLinkedList {
     }
     //need O(1) extra space
     public static boolean isPalindrome3(Node head){
-        if(head==null||head.next==null)return false;
-
+        if(head==null||head.next==null)return true;
         Node n1=head;//慢指针
         Node n2=head;//快指针
         while(n2.next!=null&&n2.next.next!=null){
